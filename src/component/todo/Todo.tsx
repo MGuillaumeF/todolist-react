@@ -11,7 +11,7 @@ export default function Todo (props: ITodoProps) {
     let [items, setItems] = React.useState(EMPTY_STRING_ARRAY);
 
     const onDelete = (id : number) => {
-        let tasks = [...items];
+        const tasks = [...items];
         tasks.splice(id, 1);
         setItems(tasks);
     };
