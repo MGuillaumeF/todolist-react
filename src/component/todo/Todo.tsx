@@ -4,14 +4,17 @@ export interface ITodoProps {
 }
 
 export default function Todo (props: ITodoProps) {
-    let [value, setValue] = React.useState('');
+    const EMPTY_STRING : string = '';
+    const EMPTY_STRING_ARRAY : Array<string> = [];
+    let [task, setTask] = React.useState(EMPTY_STRING);
+    let [items, setItems] = React.useState(EMPTY_STRING_ARRAY);
     const onSubmit = (e : any) => {
         e.preventDefault();
-        console.log(value);
+        setItems([...items, task]);
+        console.log(task, items);
     };
     const onChange = (e : any) => {
-        setValue(e.target.value);
-        console.log(value);
+        setTask(e.target.value);
     };
   return (
     <div className='card my-3'>
@@ -27,7 +30,7 @@ export default function Todo (props: ITodoProps) {
                     className='form-control form-control-lg' 
                     name='element'
                     onChange={onChange}
-                    value={value}
+                    value={task}
                 />
             </div>
             <button className="btn btn-primary btn-block">Add</button>
