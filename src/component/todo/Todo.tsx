@@ -1,65 +1,107 @@
 import * as React from 'react';
+import {useState, Fragment} from 'react';
 
-const EMPTY_STRING : string = '';
-const EMPTY_STRING_ARRAY : Array<string> = [];
+const EMPTY_STRING: string = '';
+const EMPTY_STRING_ARRAY: Array<string> = [];
+const VALIDATION_PATTERN: RegExp = /[a-zA-Z].+/;
 
-export default function Todo () {
-    let [task, setTask] = React.useState(EMPTY_STRING);
-    let [items, setItems] = React.useState(EMPTY_STRING_ARRAY);
+export default function Todo() {
+    let [task, setTask] = useState(EMPTY_STRING);
+    let [items, setItems] = useState(EMPTY_STRING_ARRAY);
 
-    const onDelete = (id : number) => {
+    /**
+     * Function to update the value of task state 
+     * @param event The event of changement
+     */
+    const onChange = (event: any) => {
+        setTask(event.target.value);
+    };
+
+    /**
+     * Function to add an item in todolist
+     * @param event 
+     */
+    const onSubmit = (event: any) => {
+        event.preventDefault();
+        if (VALIDATION_PATTERN.test(task)) {
+            setItems([...items, task.trim()]);
+            setTask(EMPTY_STRING);
+        }
+    };
+
+    /**
+     * function to delete an item of todolist
+     * @param id The id of item must be deleted
+     */
+    const onDelete = (id: number) => {
         const tasks = [...items];
         tasks.splice(id, 1);
         setItems(tasks);
     };
-    const onSubmit = (e : any) => {
-        e.preventDefault();
-        setItems([...items, task]);
-        setTask(EMPTY_STRING);
-    };
-    const onChange = (e : any) => {
-        setTask(e.target.value);
-    };
+
+    /**
+     * Function to write the task list
+     */
     const renderTodo = () => {
         return items.map((item, index) => {
             return (
                 <div className="card mb-3" key={index}>
                     <div className="card-body">
                         <h4>{item}
-                        <i 
+                            <i
                                 className="fas fa-times"
-                            style={{cursor:'pointer', color : 'red', float : 'right'}}
-                            onClick={() => {onDelete(index)}}
-                        ></i>
+                                style={{ cursor: 'pointer', color: 'red', float: 'right' }}
+                                onClick={() => { onDelete(index) }}
+                            ></i>
                         </h4>
                     </div>
                 </div>
             )
         });
     };
-  return (
-    <React.Fragment>
-        <div className='card my-3'>
-        <div className="card-header">
-            Todo List
-        </div>
-        <div className="card-body">
-            <form onSubmit={onSubmit}>
-                <div className="form-group">
-                    <label htmlFor="element">Task</label>
-                    <input 
-                        type="text"
-                        className='form-control form-control-lg' 
-                        name='element'
-                        onChange={onChange}
-                        value={task}
-                    />
+
+    /**
+     * Funtion to select the valid className if input is valid or not
+     * @param validClassName The className if input value is valid
+     * @param invalidClassName The className if input value is invalid
+     */
+    const getValidationClassName = (validClassName: string, invalidClassName: string) => {
+        let resultClassName: string;
+        if (VALIDATION_PATTERN.test(task)) {
+            resultClassName = validClassName;
+        } else {
+            resultClassName = invalidClassName;
+        }
+        return resultClassName;
+    }
+
+    return (
+        <Fragment>
+            <div className='card my-3'>
+                <div className="card-header">
+                    Todo List
                 </div>
-                <button className="btn btn-primary btn-block">Add</button>
-            </form>
-        </div>
-        </div>
-        {renderTodo()}
-    </React.Fragment>
-  );
+                <div className="card-body">
+                    <form onSubmit={onSubmit}>
+                        <div className="form-group">
+                            <label
+                                htmlFor="task"
+                                className={task.length > 0 ? getValidationClassName('text-success', 'text-danger') : ''}
+                            >Task</label>
+                            <input
+                                type="text"
+                                placeholder="Task to add"
+                                className={`form-control form-control-lg ${task.length > 0 ? getValidationClassName('is-valid', 'is-invalid') : ''}`}
+                                name='task'
+                                onChange={onChange}
+                                value={task}
+                            />
+                        </div>
+                        <button className="btn btn-primary btn-block">Add</button>
+                    </form>
+                </div>
+            </div>
+            {renderTodo()}
+        </Fragment>
+    );
 }
