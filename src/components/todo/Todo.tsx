@@ -1,17 +1,20 @@
 import * as React from 'react';
 import {useState, Fragment} from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+import { EMPTY_STRING, EMPTY_STRING_ARRAY, TODO_NAME_VALIDATION_PATTERN } from '../../utils';
 
-const EMPTY_STRING: string = '';
-const EMPTY_STRING_ARRAY: Array<string> = [];
-const VALIDATION_PATTERN: RegExp = /[a-zA-Z].+/;
-
+/**
+ * The component with todo form and todo list
+ * @visibleName Todo component
+ */
 export default function Todo() {
     let [task, setTask] = useState(EMPTY_STRING);
     let [items, setItems] = useState(EMPTY_STRING_ARRAY);
 
     /**
      * Function to update the value of task state 
-     * @param event The event of changement
+     * @param even The event of changement
      */
     const onChange = (event: any) => {
         setTask(event.target.value);
@@ -23,7 +26,7 @@ export default function Todo() {
      */
     const onSubmit = (event: any) => {
         event.preventDefault();
-        if (VALIDATION_PATTERN.test(task)) {
+        if (TODO_NAME_VALIDATION_PATTERN.test(task)) {
             setItems([...items, task.trim()]);
             setTask(EMPTY_STRING);
         }
@@ -67,7 +70,7 @@ export default function Todo() {
      */
     const getValidationClassName = (validClassName: string, invalidClassName: string) => {
         let resultClassName: string;
-        if (VALIDATION_PATTERN.test(task)) {
+        if (TODO_NAME_VALIDATION_PATTERN.test(task)) {
             resultClassName = validClassName;
         } else {
             resultClassName = invalidClassName;
