@@ -1,0 +1,25 @@
+#calendar {
+    width : 300px;
+    /*border : 1px solid black;*/
+    /*padding : 1.5em;*/
+    border-radius : 5px;
+    box-shadow: 2px 2px 10px #ccc;
+    position: absolute;
+    transform: translate(0, 50px);
+    background-color: white;
+}
+#calendar td:not(.empty), 
+#calendar tbody, 
+#calendar th {
+    padding : 0.4em;
+    border : 1px solid black;
+    text-align: center;
+}
+#calendar td:not(.empty):hover,
+#calendar td#selected-day {
+    color :white;
+    background-color: red;
+}
+#calendar td {
+    cursor: pointer;
+}

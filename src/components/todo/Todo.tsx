@@ -3,6 +3,7 @@ import {useState, Fragment} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import { EMPTY_STRING, EMPTY_STRING_ARRAY, TODO_NAME_VALIDATION_PATTERN } from '../../utils';
+import DatetimePicker from '../datetime-picker/DatetimePicker';
 
 /**
  * The component with todo form and todo list
@@ -99,6 +100,11 @@ export default function Todo() {
                                 onChange={onChange}
                                 value={task}
                             />
+                            <label
+                                htmlFor="start-date"
+                                className={task.length > 0 ? getValidationClassName('text-success', 'text-danger') : ''}
+                            >Start Date</label>
+                            <DatetimePicker/>
                         </div>
                         <button className="btn btn-primary btn-block">Add</button>
                     </form>
