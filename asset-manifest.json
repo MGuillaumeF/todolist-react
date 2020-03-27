@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/todolist-react/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/todolist-react/static/js/main.502d71a6.chunk.js",
-    "main.js.map": "/todolist-react/static/js/main.502d71a6.chunk.js.map",
+    "main.css": "/todolist-react/static/css/main.f2d17052.chunk.css",
+    "main.js": "/todolist-react/static/js/main.9e2c53d6.chunk.js",
+    "main.js.map": "/todolist-react/static/js/main.9e2c53d6.chunk.js.map",
     "runtime-main.js": "/todolist-react/static/js/runtime-main.fdc70e1c.js",
     "runtime-main.js.map": "/todolist-react/static/js/runtime-main.fdc70e1c.js.map",
     "static/css/2.84fe8b7c.chunk.css": "/todolist-react/static/css/2.84fe8b7c.chunk.css",
-    "static/js/2.f1207046.chunk.js": "/todolist-react/static/js/2.f1207046.chunk.js",
-    "static/js/2.f1207046.chunk.js.map": "/todolist-react/static/js/2.f1207046.chunk.js.map",
+    "static/js/2.42fa6db5.chunk.js": "/todolist-react/static/js/2.42fa6db5.chunk.js",
+    "static/js/2.42fa6db5.chunk.js.map": "/todolist-react/static/js/2.42fa6db5.chunk.js.map",
     "index.html": "/todolist-react/index.html",
-    "precache-manifest.2e864152d7995759c102108e1b7a92b6.js": "/todolist-react/precache-manifest.2e864152d7995759c102108e1b7a92b6.js",
+    "precache-manifest.2bd73329995e55ec81073b9d17a39e56.js": "/todolist-react/precache-manifest.2bd73329995e55ec81073b9d17a39e56.js",
     "service-worker.js": "/todolist-react/service-worker.js",
     "static/css/2.84fe8b7c.chunk.css.map": "/todolist-react/static/css/2.84fe8b7c.chunk.css.map",
-    "static/css/main.5ecd60fb.chunk.css.map": "/todolist-react/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.f1207046.chunk.js.LICENSE.txt": "/todolist-react/static/js/2.f1207046.chunk.js.LICENSE.txt",
+    "static/css/main.f2d17052.chunk.css.map": "/todolist-react/static/css/main.f2d17052.chunk.css.map",
+    "static/js/2.42fa6db5.chunk.js.LICENSE.txt": "/todolist-react/static/js/2.42fa6db5.chunk.js.LICENSE.txt",
     "static/media/all.css": "/todolist-react/static/media/fa-solid-900.ec763292.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.fdc70e1c.js",
     "static/css/2.84fe8b7c.chunk.css",
-    "static/js/2.f1207046.chunk.js",
-    "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.502d71a6.chunk.js"
+    "static/js/2.42fa6db5.chunk.js",
+    "static/css/main.f2d17052.chunk.css",
+    "static/js/main.9e2c53d6.chunk.js"
   ]
 }
