@@ -9,7 +9,7 @@ export default function DatetimePicker(props: IDatetimePickerProps) {
     const [selectedMonth, setSelectedMonth] = React.useState(new Date().getMonth());
     const [selectedYear, setSelectedYear] = React.useState(new Date().getFullYear());
     const [selectedTime, setSelectedTime] = React.useState('00:00:00');
-    const [calendarShow, setCalendarShow] = React.useState(true);
+    const [calendarShow, setCalendarShow] = React.useState(false);
 
     const onChangeDate = (event : any) => {
         if (event.target.innerHtml !== '') {
@@ -116,9 +116,9 @@ export default function DatetimePicker(props: IDatetimePickerProps) {
                 </div>
                 <div className="row px-3">
                 <input 
-                    className='btn btn-primary col my-3'
+                    className='btn btn-secondary col my-3'
                     type="button"
-                    value='set'
+                    value='SAVE'
                 />
                 </div>
             </div>
@@ -137,7 +137,7 @@ export default function DatetimePicker(props: IDatetimePickerProps) {
                     onChange={(event :any)=> {console.log(event.target.value)}}          
                 />
                 <div className="input-group-append">
-                <span onClick={() => setCalendarShow(true)} className="input-group-text">D</span>
+                <span onClick={() => setCalendarShow(!calendarShow)} className="input-group-text clickable">D</span>
                 </div>
             </div>
         </React.Fragment>

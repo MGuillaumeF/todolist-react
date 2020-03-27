@@ -1,7 +1,5 @@
 #calendar {
     width : 300px;
-    /*border : 1px solid black;*/
-    /*padding : 1.5em;*/
     border-radius : 5px;
     box-shadow: 2px 2px 10px #ccc;
     position: absolute;
@@ -15,11 +13,17 @@
     border : 1px solid black;
     text-align: center;
 }
+#calendar th {
+    color :white;
+    background-color: maroon;
+}
 #calendar td:not(.empty):hover,
 #calendar td#selected-day {
     color :white;
-    background-color: red;
+    background-color: maroon;
 }
+
+.clickable,
 #calendar td {
     cursor: pointer;
 }
